@@ -6,12 +6,16 @@
 
 import React, { Component } from 'react';
 import { AppRegistry } from 'react-native';
+import { Provider } from 'react-redux'
+import store from './src/store'
 import App from './src/App'
 
 export default class NativeDemo extends Component {
   render() {
     return (
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     )
   }
 }
