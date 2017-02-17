@@ -1,15 +1,34 @@
-import React, { Component } from 'react'
-import { View, Text } from 'react-native'
-import styles from './All.styles'
+import React, { PureComponent, PropTypes } from 'react'
+import { connect } from 'react-redux'
+import fetchRecipes from '../../actions/recipes/fetch'
+import Recipe from '../../components/recipes/Recipe'
+import { ScrollView, Image, Text } from 'react-native'
 
-class All extends Component {
+export class All extends PureComponent {
+  static propTypes = {
+    recipes: PropTypes.array.isRequired,
+    fetchRecipes: PropTypes.func.isRequired,
+  }
+
+  componentWillMount() {
+    this.props.fetchRecipes()
+  }
+
+  renderRecipe(recipe, index) {
+    return <Recipe key={ index } { ...recipe } />
+  }
+
   render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.title}>All Recipes</Text>
-      </View>
+    console.log(this.props)
+
+    return(
+      <ScrollView>
+        { this.props.recipes.map(this.renderRecipe.bind(this)) }
+      </ScrollView>
     )
   }
 }
 
-export default All
+const mapStateToProps = ({ recipes }) => ({ recipes })
+
+export default connect(mapStateToProps, { fetchRecipes })(All)

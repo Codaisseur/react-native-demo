@@ -21,6 +21,8 @@ class App extends Component {
       route.index = this.nextRoute
     }
 
+    console.log("Route index", route.index)
+
     if (routes[route.index]) {
       const RouteComponent = routes[route.index].component
       return <RouteComponent />
