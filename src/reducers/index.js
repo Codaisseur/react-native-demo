@@ -1,5 +1,7 @@
 import counter from './counter'
+import currentRoute from './currentRoute'
 
 module.exports = {
-  counter
+  counter,
+  currentRoute,
 }

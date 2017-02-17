@@ -5,9 +5,11 @@ module.exports = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F6F6F6',
+    backgroundColor: '#FFFFFF',
   },
-  navbar: {
-    backgroundColor: '#F5FCFF',
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
   },
 });
