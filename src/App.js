@@ -35,6 +35,7 @@ class App extends Component {
     return (
       <Navigator
         navigationBar={
+          this.props.currentRoute === 0 ? null :
           <Navigator.NavigationBar routeMapper={{
              LeftButton: (route, navigator, index, navState) =>
               { return (route.leftButton); },
