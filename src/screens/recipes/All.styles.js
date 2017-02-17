@@ -1,15 +1,12 @@
 import { StyleSheet } from 'react-native';
 
 module.exports = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#FFFFFF',
-  },
-  title: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  list: {
+    marginTop: 80,
+    marginLeft: 4,
+    marginRight: 4,
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
   },
 });

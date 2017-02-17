@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import styles from './Launch.styles'
 import fetchRecipes from '../actions/recipes/fetch'
 import LaunchImage from '../images/bg-launch-screen.png'
+import Tomato from '../images/tomato.png'
 
 class Launch extends Component {
   componentWillMount() {
@@ -15,7 +16,10 @@ class Launch extends Component {
     console.log(this.props)
     return (
       <View style={styles.container}>
-        <Image style={styles.image} source={LaunchImage} />
+        <Image style={styles.background} source={LaunchImage} />
+        <View style={styles.overlay}>
+          <Image style={styles.icon} source={Tomato} />
+        </View>
       </View>
     );
   }

@@ -1,7 +1,8 @@
 // src/components/recipes/Recipe.js
 import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { View, Image, Text } from 'react-native'
+import { View, Image, Text, TouchableHighlight } from 'react-native'
+import styles from './Recipe.styles'
 
 export class Recipe extends PureComponent {
   static propTypes = {
@@ -9,16 +10,20 @@ export class Recipe extends PureComponent {
     photo: PropTypes.string.isRequired,
   }
 
+  handleNav() {
+    console.log('This is where we would nav to the recipe detail page...')
+  }
+
   render() {
     const { _id, title, summary, vegan, vegetarian, pescatarian, photo, liked, likedBy } = this.props
 
     return(
-      <View>
-        <Text>
-          {title}
-        </Text>
-        <Image source={{uri: 'https://unsplash.it/480?random'}} style={{width: 100, height: 100}} />
-      </View>
+      <TouchableHighlight underlayColor="#FFFFFF" style={styles.row} onPress={this.handleNav.bind(this)}>
+        <View>
+          <Image source={{uri: 'https://placehold.it/480/ff3333/ffffff?text=:{)'}} style={styles.thumb} />
+          <Text style={styles.text}>{title}</Text>
+        </View>
+      </TouchableHighlight>
     )
   }
 }
